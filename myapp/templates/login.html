@@ -1,0 +1,41 @@
+
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+
+{% endblock %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+{% if error %}
+
+{{ error }}
+<br />
+<br />
+{% endif %}
+
+
+ <main role="main">
+       <div class="container">
+            <h1 class="text-center pt-3">LogIn!</h1>
+           <form  action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                Username:
+                <br />
+                <input type="text" name="username" />
+                <br />
+                Password:
+                <br />
+                <input type="password" name="password" />
+                <br />
+                <br />
+                <input class="btn btn-primary" type="submit" value="Login" />
+                </form>
+       </div>
+    </main>
+
+
+{% endblock %}
